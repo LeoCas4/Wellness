@@ -25,7 +25,6 @@ enum class AppDestinations(val title: String) {
 @Composable
 fun WellnessApp(viewModel: WellnessViewModel = viewModel()) {
     val navController = rememberNavController()
-    // Observamos la ruta actual para saber qué botón iluminar
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
@@ -37,7 +36,6 @@ fun WellnessApp(viewModel: WellnessViewModel = viewModel()) {
                     selected = currentRoute == AppDestinations.Inicio.name,
                     onClick = {
                         navController.navigate(AppDestinations.Inicio.name) {
-                            // Evita crear un historial infinito de pantallas
                             popUpTo(navController.graph.startDestinationId) { saveState = true }
                             launchSingleTop = true
                             restoreState = true
