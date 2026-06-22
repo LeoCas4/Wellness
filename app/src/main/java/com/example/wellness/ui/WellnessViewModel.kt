@@ -24,7 +24,6 @@ class WellnessViewModel(application: Application) : AndroidViewModel(application
     private val _articles = MutableStateFlow<List<HealthArticle>>(emptyList())
     val articles: StateFlow<List<HealthArticle>> = _articles.asStateFlow()
 
-    // Estados de UI para la API
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
@@ -52,7 +51,6 @@ class WellnessViewModel(application: Application) : AndroidViewModel(application
             _isLoading.value = true
             _errorMessage.value = null
             try {
-                // Simulamos una pequeña demora para que se note el estado de carga
                 kotlinx.coroutines.delay(1000)
                 _articles.value = RetrofitClient.api.getHealthArticles().take(10)
             } catch (e: Exception) {
