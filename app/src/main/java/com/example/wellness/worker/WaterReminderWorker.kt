@@ -7,7 +7,6 @@ import androidx.work.WorkerParameters
 
 class WaterReminderWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
     override fun doWork(): Result {
-        // Aquí iría el código de NotificationManager para mostrar la alerta real
         Log.d("WaterReminderWorker", "¡Es hora de beber un vaso de agua!")
         return Result.success()
     }
