@@ -12,7 +12,6 @@ interface WellnessApi {
 }
 
 object RetrofitClient {
-    // Cambiamos la URL base a la de npoint
     private const val BASE_URL = "https://api.npoint.io/"
 
     val api: WellnessApi by lazy {
